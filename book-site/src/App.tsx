@@ -1,9 +1,9 @@
-import Counter from './components/NavBar'
+import Nav from './components/Nav'
 
 function App() {
   return (
     <div>
-      <Counter />
+      <Nav />
     </div>
   )
 }
