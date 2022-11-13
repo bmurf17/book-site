@@ -1,17 +1,14 @@
 import React, { Fragment, useState } from "react";
 import { Dialog, Transition, } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
+import { Routes } from "react-router";
 
-function classNames(...classes: string[]) {
-    return classes.filter(Boolean).join(' ')
-}
-const Nav = () => {
+function Nav() {
     const [open, setOpen] = useState(true)
 
     return (
         <>
             <div className="flex min-h-screen">
-
                 {/* Side Bar */}
                 <Transition.Root show={open}>
                     <Dialog as="div" onClose={() => { setOpen(false) }} className="fixed inset-0 z-40">
@@ -61,17 +58,30 @@ const Nav = () => {
                     </Dialog>
                 </Transition.Root>
 
-
-
                 <div className="flex-1">
                     {/* Top Bar */}
                     <div className="w-full h-20 flex justify-between items-center px-8 text-black bg-slate-500">
                         <h1 className="text-2xl font-bold text-green-400 hover:cursor-pointer" onClick={() => { setOpen(true) }}>REACT</h1>
-                        <ul className="flex items-center">
-                        </ul>
+                        <div>
+                            User Badge
+                        </div>
                     </div>
                     {/* Main */}
-                    <main>Main Content</main>
+                    <main>
+                        <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+                                <div className="px-6 py-4">
+                                    <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
+                                    <p className="text-gray-700 text-base">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+                                    </p>
+                                </div>
+                                <div className="px-6 pt-4 pb-2">
+                                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
+                                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
+                                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
+                                </div>
+                        </div>
+                    </main>
                 </div>
 
             </div>
@@ -79,4 +89,5 @@ const Nav = () => {
         </>
     )
 }
+
 export default Nav;
