@@ -1,9 +1,13 @@
 import Nav from './components/Nav'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from './components/Home Page/Home';
 
 function App() {
   return (
     <div>
-      <Nav />
+      <BrowserRouter>
+        <Nav />
+      </BrowserRouter>
     </div>
   )
 }

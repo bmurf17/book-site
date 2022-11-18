@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Home() {
+function Friends() {
     return(
         <main>
-            Home
+            Friends
         </main>
     )
 }
 
-export default Home;
+export default Friends;

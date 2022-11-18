@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Home() {
+function Poems() {
     return(
         <main>
-            Home
+            Poems
         </main>
     )
 }
 
-export default Home;
+export default Poems;

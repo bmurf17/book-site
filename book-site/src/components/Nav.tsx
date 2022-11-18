@@ -1,10 +1,18 @@
-import React, { Fragment, useState } from "react";
-import { Dialog, Transition, } from '@headlessui/react'
-import { XMarkIcon } from '@heroicons/react/24/outline'
-import { Routes } from "react-router";
+import { Dialog, Transition } from '@headlessui/react';
+import { XMarkIcon } from '@heroicons/react/24/outline';
+import { Fragment, useState } from "react";
+import { Link, Routes, Route } from "react-router-dom";
+import { routes } from '../Constants/Routes';
+import Authors from './Authors/Authors';
+import Friends from './Friends/Friends';
+import Home from './Home Page/Home';
+import MyBooks from './My Books/MyBooks';
+import Poems from './Poems/Poems';
+import TBR from './TBR/TBR';
+
 
 function Nav() {
-    const [open, setOpen] = useState(true)
+    const [open, setOpen] = useState(false)
 
     return (
         <>
@@ -36,9 +44,17 @@ function Nav() {
                                         <h3 className="mx-6 mb-2 text-xs text-gray-400 uppercase tracking-widest">
                                             Main
                                         </h3>
-                                        <div className="flex items-center px-6 py-2.5 text-gray-500 hover:text-orange-600 group">
-                                            Page Name + icon
-                                        </div>
+                                        {
+                                            routes.map((route) => {
+                                                return (
+                                                    <Link to={route.link}>
+                                                        <div className="flex items-center px-6 py-2.5 text-gray-500 hover:text-orange-600 group">
+                                                            {route.navName}
+                                                        </div>
+                                                    </Link>
+                                                )
+                                            })
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -68,19 +84,13 @@ function Nav() {
                     </div>
                     {/* Main */}
                     <main>
-                        <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-                                <div className="px-6 py-4">
-                                    <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-                                    <p className="text-gray-700 text-base">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-                                    </p>
-                                </div>
-                                <div className="px-6 pt-4 pb-2">
-                                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#photography</span>
-                                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#travel</span>
-                                    <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
-                                </div>
-                        </div>
+                        <Routes>
+                            {
+                                routes.map((route) => {
+                                    return <Route path={route.link} element={route.element} />
+                                })
+                            }
+                        </Routes>
                     </main>
                 </div>
 

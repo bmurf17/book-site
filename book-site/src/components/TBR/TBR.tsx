@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Home() {
+function TBR() {
     return(
         <main>
-            Home
+            TBR
         </main>
     )
 }
 
-export default Home;
+export default TBR;

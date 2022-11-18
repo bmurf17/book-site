@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Home() {
+function MyBooks() {
     return(
         <main>
-            Home
+            My Books
         </main>
     )
 }
 
-export default Home;
+export default MyBooks;
