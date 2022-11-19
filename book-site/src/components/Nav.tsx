@@ -1,15 +1,10 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { Fragment, useState } from "react";
-import { Link, Routes, Route } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import { routes } from '../Constants/Routes';
-import Authors from './Authors/Authors';
-import Friends from './Friends/Friends';
-import Home from './Home Page/Home';
-import MyBooks from './My Books/MyBooks';
-import Poems from './Poems/Poems';
-import TBR from './TBR/TBR';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBook } from '@fortawesome/free-solid-svg-icons'
 
 function Nav() {
     const [open, setOpen] = useState(false)
@@ -48,8 +43,13 @@ function Nav() {
                                             routes.map((route) => {
                                                 return (
                                                     <Link to={route.link}>
-                                                        <div className="flex items-center px-6 py-2.5 text-gray-500 hover:text-orange-600 group">
-                                                            {route.navName}
+                                                        <div className="flex items-center px-6 py-2.5 text-gray-500 hover:text-orange-600 group" onClick={() => {
+                                                            setOpen(false);
+                                                        }}>
+                                                            {route.icon}
+                                                            <div className='px-4'>
+                                                                {route.navName}
+                                                            </div>
                                                         </div>
                                                     </Link>
                                                 )
@@ -83,7 +83,7 @@ function Nav() {
                         </div>
                     </div>
                     {/* Main */}
-                    <main>
+                    <main className="flex px-8">
                         <Routes>
                             {
                                 routes.map((route) => {
