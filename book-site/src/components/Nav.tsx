@@ -43,7 +43,7 @@ function Nav() {
                                             routes.map((route) => {
                                                 return (
                                                     <Link to={route.link}>
-                                                        <div className="flex items-center px-6 py-2.5 text-gray-500 hover:text-orange-600 group" onClick={() => {
+                                                        <div className="flex items-center px-6 py-2.5 text-gray-500 hover:text-orange-600 group text-lg" onClick={() => {
                                                             setOpen(false);
                                                         }}>
                                                             {route.icon}
@@ -83,7 +83,7 @@ function Nav() {
                         </div>
                     </div>
                     {/* Main */}
-                    <main className="flex px-8">
+                    <main className="flex px-8 py-4">
                         <Routes>
                             {
                                 routes.map((route) => {
