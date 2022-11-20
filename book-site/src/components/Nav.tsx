@@ -2,7 +2,7 @@ import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { Fragment, useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
-import { routes } from '../Constants/Routes';
+import { routes } from '../constants/Routes';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBook } from '@fortawesome/free-solid-svg-icons'
 

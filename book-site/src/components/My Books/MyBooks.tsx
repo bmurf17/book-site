@@ -1,10 +1,10 @@
 import React from 'react';
+import { BookCard } from '../../shared/BookCard';
+import { tempBook } from '../../types/book';
 
 function MyBooks() {
     return(
-        <main>
-            My Books
-        </main>
+        <BookCard book={tempBook} showRating={true} />
     )
 }
 
