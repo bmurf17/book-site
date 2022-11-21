@@ -1,4 +1,4 @@
-import { Book } from "../types/book";
+import { Book } from "../types/Book";
 
 interface Props {
   book: Book;
@@ -7,11 +7,11 @@ interface Props {
 
 export function BookCard({ book, showRating }: Props) {
   return (
-    <div className="rounded overflow-hidden shadow-lg bg-white hover:cursor-pointer">
+    <div className="w-full rounded overflow-hidden shadow-lg bg-white hover:cursor-pointer">
       <img className="w-full" src={book.img} alt="Sunset in the mountains" />
       <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2">{book.title}</div>
-        <p className="text-gray-700 text-base">By: {book.author}</p>
+        <div className="font-bold text-lg mb-2">{book.title}</div>
+        <p className="text-gray-700 text-lg">{book.author}</p>
       </div>
       <div className="px-6 pb-2">
         {showRating ? (
@@ -70,7 +70,7 @@ export function BookCard({ book, showRating }: Props) {
         ) : (
           <>
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-              Finished Reading
+              Finished
             </button>
           </>
         )}
