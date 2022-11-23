@@ -7,12 +7,12 @@ import { PageCount } from "./_PageCount";
 function Home() {
   return (
     <>
-      <div className="grid md:grid-cols-4 gap-4 w-full">
+      <div className="grid grid-flow-row auto-rows-max gap-4">
         <div className="col-span-4 text-center">
-          <div className="text-">Welcome User Name</div>
+          <div className="text-2xl font">Welcome User Name</div>
         </div>
         {/* Page Count */}
-        <div className="md:col-span-4 col-span-4">
+        <div className="md:col-span-4 col-span-4 ">
           <PageCount />
         </div>
         <div className="md:col-span-2 col-span-4">

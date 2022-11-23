@@ -4,7 +4,7 @@ import { tempBook } from "../../types/Book";
 
 function TBR() {
   return (
-    <div className="grid md:grid-cols-6 grid-cols-2 gap-8">
+    <div className="grid grid-flow-row auto-rows-max grid-cols-2 md:grid-cols-5 xl:grid-cols-6 gap-4">
       <div>
         <BookCard book={tempBook} showRating={false} />
       </div>

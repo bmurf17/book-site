@@ -32,10 +32,25 @@ export function GenreChart() {
     ],
   };
 
+  const options = {
+    responsive: true,
+    aspectRatio: 1,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: "top" as const,
+      },
+      title: {
+        display: true,
+        text: "Chart.js Line Chart",
+      },
+    },
+  };
+
   return (
     <div className="rounded overflow-hidden shadow-lg bg-white">
       <div className="flex items-center justify-center px-6 py-4">
-        <Doughnut data={data} />
+        <Doughnut data={data} options={options} />
       </div>
     </div>
   );
