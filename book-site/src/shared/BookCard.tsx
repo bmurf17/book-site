@@ -9,13 +9,9 @@ export function BookCard({ book, showRating }: Props) {
   return (
     <div className="rounded overflow-hidden shadow-lg bg-white hover:cursor-pointer">
       <div className="flex justify-center pt-4">
-        <img
-          className="object-cover"
-          src={book.img}
-          alt="Sunset in the mountains"
-        />
+        <img className="object-cover h-64" src={book.img} alt={book.title} />
       </div>
-      <div className="flex justify-center px-6 pt-4">
+      <div className="flex justify-center text-center px-6 pt-4">
         <div className="font-bold text-xl">{book.title}</div>
       </div>
       <div className="flex justify-center px-6">
