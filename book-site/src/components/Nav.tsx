@@ -40,26 +40,30 @@ function Nav() {
                 >
                   <XMarkIcon className="h-5 w-5"></XMarkIcon>
                 </button>
-                <div className="py-4 px-6 text-orange-600">Book Tracker</div>
+                <div className="py-4 px-6 font-bold text-green-600">
+                  Book Tracker
+                </div>
                 <div className="overflow-y-auto flex-1">
                   <div className="mb-10">
                     <h3 className="mx-6 mb-2 text-xs text-gray-400 uppercase tracking-widest">
                       Main
                     </h3>
                     {routes.map((route) => {
-                      return (
-                        <Link to={route.link} key={route.navName}>
-                          <div
-                            className="flex items-center px-6 py-2.5 text-gray-500 hover:text-orange-600 group text-lg"
-                            onClick={() => {
-                              setOpen(false);
-                            }}
-                          >
-                            {route.icon}
-                            <div className="px-4">{route.navName}</div>
-                          </div>
-                        </Link>
-                      );
+                      if (route.icon && route.navName) {
+                        return (
+                          <Link to={route.link} key={route.navName}>
+                            <div
+                              className="flex items-center px-6 py-2.5 text-gray-500 hover:text-green-600 group text-lg"
+                              onClick={() => {
+                                setOpen(false);
+                              }}
+                            >
+                              {route.icon}
+                              <div className="px-4">{route.navName}</div>
+                            </div>
+                          </Link>
+                        );
+                      }
                     })}
                   </div>
                 </div>
@@ -81,19 +85,19 @@ function Nav() {
 
         <div className="flex-1">
           {/* Top Bar */}
-          <div className="w-full h-20 flex justify-between items-center px-8 text-black bg-gray-700">
+          <div className="w-full h-20 flex justify-between items-center px-8 text-black bg-gray-50">
             <h1
-              className="text-2xl font-bold text-orange-600 hover:cursor-pointer"
+              className="text-2xl font-bold text-green-700 hover:cursor-pointer"
               onClick={() => {
                 setOpen(true);
               }}
             >
               <div className="flex items-center text-lg">
                 <FontAwesomeIcon icon={faChartLine} />
-                <div className="px-2"> Book Tracker</div>
+                <div className="px-2 "> Book Tracker</div>
               </div>
             </h1>
-            <div className="inline-flex overflow-hidden relative justify-center items-center w-10 h-10 bg-gray-100 rounded-full dark:bg-gray-600">
+            <div className="inline-flex overflow-hidden relative justify-center items-center w-10 h-10 bg-orange-200 rounded-full dark:bg-gray-600">
               <span className="font-medium text-gray-600 dark:text-gray-300">
                 BM
               </span>
