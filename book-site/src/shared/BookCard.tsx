@@ -1,3 +1,6 @@
+import axios from "axios";
+import { useQuery } from "react-query";
+import { Author } from "../types/Author";
 import { Book } from "../types/Book";
 
 interface Props {
@@ -6,6 +9,12 @@ interface Props {
 }
 
 export function BookCard({ book, showRating }: Props) {
+  const { isLoading, data } = useQuery(`author-${book.id}`, async () => {
+    return await axios.get<Author[]>(
+      `https://expressjs-postgres-production-5ff7.up.railway.app/author/${book.author}`
+    );
+  });
+
   return (
     <div className="rounded overflow-hidden shadow-lg bg-white hover:cursor-pointer">
       <div className="flex justify-center pt-4">
@@ -14,8 +23,8 @@ export function BookCard({ book, showRating }: Props) {
       <div className="flex justify-center text-center px-6 pt-4">
         <div className="font-bold text-xl">{book.title}</div>
       </div>
-      <div className="flex justify-center px-6">
-        <p className="text-gray-700 text-lg">{book.author}</p>
+      <div className="flex justify-center text-center px-6">
+        <p className="text-gray-700 text-lg">{data?.data[0].name}</p>
       </div>
       <div className="flex justify-center px-6 pb-2">
         {showRating ? (
