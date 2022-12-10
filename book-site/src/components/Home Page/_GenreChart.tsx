@@ -34,23 +34,21 @@ export function GenreChart() {
 
   const options = {
     responsive: true,
-    aspectRatio: 1,
-    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: "top" as const,
       },
       title: {
         display: true,
-        text: "Chart.js Line Chart",
+        text: "Top Gemres",
       },
     },
   };
 
   return (
     <div className="rounded overflow-hidden shadow-lg bg-white">
-      <div className="flex items-center justify-center px-6 py-4">
-        <Doughnut data={data} options={options} />
+      <div className="flex items-center justify-center px-6 py-4 h-80">
+        <Doughnut className="h-80" data={data} options={options} />
       </div>
     </div>
   );

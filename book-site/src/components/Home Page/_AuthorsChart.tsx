@@ -28,7 +28,7 @@ export function AuthorChart() {
       },
       title: {
         display: true,
-        text: "Chart.js Bar Chart",
+        text: "Top Authors",
       },
     },
   };
@@ -56,8 +56,8 @@ export function AuthorChart() {
   };
   return (
     <div className="rounded overflow-hidden shadow-lg bg-white">
-      <div className="flex items-center justify-center px-6 py-4">
-        <Bar options={options} data={data} />
+      <div className="flex items-center justify-center px-6 py-4 h-96">
+        <Bar className="h-80" options={options} data={data} />
       </div>
     </div>
   );
