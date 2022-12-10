@@ -42,7 +42,7 @@ export const data = {
   labels,
   datasets: [
     {
-      label: "Dataset 1",
+      label: "Total Pages Read",
       data: numbers,
       borderColor: "rgb(255, 99, 132)",
       backgroundColor: "rgba(255, 99, 132, 0.5)",
@@ -53,8 +53,8 @@ export const data = {
 export function PageCount() {
   return (
     <div className="rounded overflow-hidden shadow-lg bg-white">
-      <div className="px-6 py-4">
-        <Line options={options} data={data} />
+      <div className="px-6 py-4 h-80">
+        <Line className="h-80" options={options} data={data} />
       </div>
     </div>
   );

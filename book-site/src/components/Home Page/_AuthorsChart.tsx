@@ -56,7 +56,7 @@ export function AuthorChart() {
   };
   return (
     <div className="rounded overflow-hidden shadow-lg bg-white">
-      <div className="flex items-center justify-center px-6 py-4 h-96">
+      <div className="flex items-center justify-center px-6 py-4 h-80">
         <Bar className="h-80" options={options} data={data} />
       </div>
     </div>
