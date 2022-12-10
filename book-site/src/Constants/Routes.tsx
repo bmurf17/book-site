@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Authors from "../components/Authors/Authors";
 import Friends from "../components/Friends/Friends";
 import Home from "../components/Home Page/Home";
-import { BookView } from "../components/My Books/BookView";
+import { BookView } from "../shared/BookView";
 import MyBooks from "../components/My Books/MyBooks";
 import Poems from "../components/Poems/Poems";
 import TBR from "../components/TBR/TBR";

@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 import { fetchBookData } from "../../api/BookApi";
+import { AddBookCard } from "../../shared/AddBookCard";
 import { BookCard } from "../../shared/BookCard";
 
 function MyBooks() {
@@ -14,6 +15,9 @@ function MyBooks() {
 
   return (
     <div className="grid grid-flow-row auto-rows-max grid-cols-2 md:grid-cols-5 xl:grid-cols-6 gap-4">
+      <Link to="/addbook">
+        <AddBookCard />
+      </Link>
       {queryResult.data?.data.map((book) => {
         return (
           <Link key={book.id} to={`/mybooks/${book.id}`}>

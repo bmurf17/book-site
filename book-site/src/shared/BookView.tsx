@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useQuery } from "react-query";
 import { useParams } from "react-router";
-import { Author } from "../../types/Author";
-import { Book } from "../../types/Book";
+import { Author } from "../types/Author";
+import { Book } from "../types/Book";
 
 export function BookView() {
   const params = useParams();
