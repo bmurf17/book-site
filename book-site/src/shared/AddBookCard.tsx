@@ -14,7 +14,7 @@ export function AddBookCard() {
         <div className="font-bold text-xl">Add A Book</div>
       </div>
       <div className="flex justify-center text-center px-6 pb-2">
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
           Add Book
         </button>
       </div>
