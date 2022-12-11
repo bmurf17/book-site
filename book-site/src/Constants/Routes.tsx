@@ -14,6 +14,7 @@ import { BookView } from "../shared/BookView";
 import MyBooks from "../components/My Books/MyBooks";
 import Poems from "../components/Poems/Poems";
 import TBR from "../components/TBR/TBR";
+import { AddBook } from "../shared/AddBook";
 
 interface Route {
   link: string;
@@ -62,5 +63,9 @@ export const routes: Route[] = [
   {
     link: "/mybooks/:id",
     element: <BookView />,
+  },
+  {
+    link: "/addbook",
+    element: <AddBook />,
   },
 ];
