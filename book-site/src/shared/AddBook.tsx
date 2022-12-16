@@ -1,16 +1,38 @@
+import { useState } from "react";
 import { RankingStars } from "./RankingStars";
+import { AddBookDto, Book } from "../types/Book";
+import { addBookData } from "../api/BookApi";
 
 export function AddBook() {
+  const [img, setImage] = useState(
+    "https://www.collinsdictionary.com/images/full/book_181404689_1000.jpg"
+  );
+  const [author, setAuthor] = useState(1);
+  const [title, setTitle] = useState("");
+  const [genre, setGenre] = useState("");
+  const [pageCount, setPageCount] = useState(0);
+  const [dateRead, setDateRead] = useState("");
+  const [rating, setRaing] = useState(4);
+
+  const submit = () => {
+    const book: AddBookDto = {
+      img: img,
+      title: title,
+      author: author,
+      pagecount: pageCount,
+      genre: genre,
+      user: 1,
+      dateRead: undefined,
+      rating: rating,
+    };
+
+    addBookData(book);
+  };
+
   return (
     <div className="rounded overflow-hidden shadow-lg bg-white grid md:grid-cols-3 grid-cols-1 gap-2">
       <div className="flex justify-center py-4 col-span-1">
-        <img
-          className="object-cover h-96"
-          src={
-            "https://www.collinsdictionary.com/images/full/book_181404689_1000.jpg"
-          }
-          alt={"Add Book Photo"}
-        />
+        <img className="object-cover h-96" src={img} alt={"Add Book Photo"} />
       </div>
       <div className="text-xl pt-4 h-2/3 col-span-2 px-2">
         <div className="flex pt-4 items-center">
@@ -18,9 +40,10 @@ export function AddBook() {
           <div>
             <input
               type="text"
-              id="pageCount"
+              id="author"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required
+              onChange={(e) => setAuthor(+e.target.value)}
             />
           </div>
         </div>
@@ -29,9 +52,10 @@ export function AddBook() {
           <div>
             <input
               type="text"
-              id="pageCount"
+              id="Title"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required
+              onChange={(e) => setTitle(e.target.value)}
             />
           </div>
         </div>
@@ -40,9 +64,10 @@ export function AddBook() {
           <div>
             <input
               type="text"
-              id="pageCount"
+              id="genre"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required
+              onChange={(e) => setGenre(e.target.value)}
             />
           </div>
         </div>
@@ -54,12 +79,13 @@ export function AddBook() {
               id="pageCount"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required
+              onChange={(e) => setPageCount(+e.target.value)}
             />
           </div>
         </div>
         <div className="flex pt-4 items-center">
           <p className="pr-4">Date Read: </p>
-          <div date-rangepicker className="flex items-center">
+          <div className="flex items-center">
             <div className="relative">
               <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
                 <svg
@@ -70,9 +96,9 @@ export function AddBook() {
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                   ></path>
                 </svg>
               </div>
@@ -88,6 +114,14 @@ export function AddBook() {
         <div className="flex pt-4 items-center">
           <p className="pr-4">Rating: </p>
           <RankingStars />
+        </div>
+        <div className="flex py-4 items-center">
+          <button
+            className="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded"
+            onClick={submit}
+          >
+            Add Book
+          </button>
         </div>
       </div>
     </div>

@@ -6,7 +6,18 @@ export interface Book {
   pagecount: number;
   genre: string;
   uid: string;
-  dateRead: Date;
+  dateRead?: Date;
+  rating: number;
+}
+
+export interface AddBookDto {
+  img: string;
+  title: string;
+  author: number;
+  pagecount: number;
+  genre: string;
+  user: number;
+  dateRead?: Date;
   rating: number;
 }
 
