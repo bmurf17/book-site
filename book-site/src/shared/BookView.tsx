@@ -46,7 +46,7 @@ export function BookView() {
               type="text"
               id="pageCount"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder={authorData?.data[0].name || ""}
+              value={authorData?.data[0].name || ""}
               required
             />
           </div>
@@ -58,7 +58,7 @@ export function BookView() {
               type="text"
               id="pageCount"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder={book?.title || ""}
+              value={book?.title || ""}
               required
             />
           </div>
@@ -70,7 +70,7 @@ export function BookView() {
               type="text"
               id="pageCount"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder={book?.genre || ""}
+              value={book?.genre || ""}
               required
             />
           </div>
@@ -82,7 +82,7 @@ export function BookView() {
               type="text"
               id="pageCount"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder={book?.pagecount?.toString() || ""}
+              value={book?.pagecount?.toString() || ""}
               required
             />
           </div>
