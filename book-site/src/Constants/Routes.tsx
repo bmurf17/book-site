@@ -15,6 +15,8 @@ import MyBooks from "../components/My Books/MyBooks";
 import Poems from "../components/Poems/Poems";
 import TBR from "../components/TBR/TBR";
 import { AddBook } from "../shared/AddBook";
+import MyAccount from "../components/User/MyAccount";
+import Login from "../components/User/Login";
 
 interface Route {
   link: string;
@@ -67,5 +69,13 @@ export const routes: Route[] = [
   {
     link: "/addbook",
     element: <AddBook />,
+  },
+  {
+    link: "/myaccount",
+    element: <MyAccount />,
+  },
+  {
+    link: "login",
+    element: <Login />,
   },
 ];
