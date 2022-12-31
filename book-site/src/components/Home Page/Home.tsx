@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Card } from "../../shared/Card";
 import { AuthorChart } from "./_AuthorsChart";
 import { GenreChart } from "./_GenreChart";
@@ -22,16 +23,24 @@ function Home() {
           <AuthorChart />
         </div>
         <div className="md:col-span-1 col-span-4">
-          <Card content="Add Books Prompt" />
+          <Link to={"mybooks"}>
+            <Card content="Add Books Prompt" />
+          </Link>
         </div>
         <div className="md:col-span-1 col-span-4">
-          <Card content="Add TBR Prompt" />
+          <Link to={"tbr"}>
+            <Card content="Add TBR Prompt" />
+          </Link>
         </div>
         <div className="md:col-span-1 col-span-4">
-          <Card content="Add Friends Prompt" />
+          <Link to={"friends"}>
+            <Card content="Add Friends Prompt" />
+          </Link>
         </div>
         <div className="md:col-span-1 col-span-4">
-          <Card content="check out Poems" />
+          <Link to={"poems"}>
+            <Card content="check out Poems" />
+          </Link>
         </div>
       </div>
     </>
