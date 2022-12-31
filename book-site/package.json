@@ -16,9 +16,11 @@
     "@heroicons/react": "^2.0.13",
     "axios": "^1.2.0",
     "chart.js": "^4.0.1",
+    "firebase": "^9.15.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.0.1",
     "react-dom": "^18.2.0",
+    "react-google-button": "^0.7.2",
     "react-query": "^3.39.2",
     "react-router": "^6.4.3",
     "react-router-dom": "^6.4.3"

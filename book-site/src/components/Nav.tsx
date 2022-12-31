@@ -116,53 +116,75 @@ function Nav() {
                   leaveTo="transform opacity-0 scale-95"
                 >
                   <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                    <div className="px-1 py-1 ">
-                      <Link to={"myaccount"}>
+                    {false ? (
+                      <>
+                        <div className="px-1 py-1 ">
+                          <Link to={"myaccount"}>
+                            <Menu.Item>
+                              {({ active }) => (
+                                <button
+                                  className={`${
+                                    active
+                                      ? "bg-green-600 text-white"
+                                      : "text-gray-900"
+                                  } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                                >
+                                  My Account
+                                </button>
+                              )}
+                            </Menu.Item>
+                          </Link>
+                          <Menu.Item>
+                            {({ active }) => (
+                              <button
+                                className={`${
+                                  active
+                                    ? "bg-green-600 text-white"
+                                    : "text-gray-900"
+                                } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                              >
+                                Settings
+                              </button>
+                            )}
+                          </Menu.Item>
+                        </div>
+                        <div className="px-1 py-1">
+                          <Menu.Item>
+                            {({ active }) => (
+                              <Link to={"login"}>
+                                <button
+                                  className={`${
+                                    active
+                                      ? "bg-violet-500 text-white"
+                                      : "text-gray-900"
+                                  } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                                >
+                                  Logout
+                                </button>
+                              </Link>
+                            )}
+                          </Menu.Item>
+                        </div>
+                      </>
+                    ) : (
+                      <div className="px-1 py-1 ">
                         <Menu.Item>
                           {({ active }) => (
-                            <button
-                              className={`${
-                                active
-                                  ? "bg-green-600 text-white"
-                                  : "text-gray-900"
-                              } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                            >
-                              My Account
-                            </button>
+                            <Link to={"login"}>
+                              <button
+                                className={`${
+                                  active
+                                    ? "bg-violet-500 text-white"
+                                    : "text-gray-900"
+                                } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                              >
+                                Login
+                              </button>
+                            </Link>
                           )}
                         </Menu.Item>
-                      </Link>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <button
-                            className={`${
-                              active
-                                ? "bg-green-600 text-white"
-                                : "text-gray-900"
-                            } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                          >
-                            Settings
-                          </button>
-                        )}
-                      </Menu.Item>
-                    </div>
-                    <div className="px-1 py-1">
-                      <Menu.Item>
-                        {({ active }) => (
-                          <Link to={"login"}>
-                            <button
-                              className={`${
-                                active
-                                  ? "bg-violet-500 text-white"
-                                  : "text-gray-900"
-                              } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                            >
-                              Logout
-                            </button>
-                          </Link>
-                        )}
-                      </Menu.Item>
-                    </div>
+                      </div>
+                    )}
                   </Menu.Items>
                 </Transition>
               </Menu>
