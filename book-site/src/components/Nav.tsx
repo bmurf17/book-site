@@ -5,8 +5,8 @@ import { Link, Route, Routes } from "react-router-dom";
 import { routes } from "../constants/Routes";
 import { faChartLine } from "@fortawesome/free-solid-svg-icons";
 import { Menu } from "@headlessui/react";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { UserContext } from "../App";
 
 function Nav() {
   const [open, setOpen] = useState(false);

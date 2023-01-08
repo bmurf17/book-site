@@ -2,17 +2,21 @@ import { LockClosedIcon } from "@heroicons/react/20/solid";
 import { app } from "../../firebaseconfig";
 import {
   onAuthStateChanged,
-  User,
+  User as FirebaseUser,
   signInWithPopup,
   GoogleAuthProvider,
   getAuth,
 } from "firebase/auth";
 import GoogleButton from "react-google-button";
 import { useContext } from "react";
+import { UserContext } from "../../App";
+import { User } from "../../types/User";
 
 function Login() {
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
+
+  const { user, changeUser } = useContext(UserContext);
 
   onAuthStateChanged(auth, (currentUser) => {
     console.log(currentUser);
@@ -23,6 +27,12 @@ function Login() {
       .then(async (result) => {
         // The signed-in user info.
         console.log(result.user);
+        const newUser: User = {
+          id: 1,
+          img: result.user.photoURL || "",
+          name: result.user.displayName || "",
+        };
+        changeUser(newUser);
       })
       .catch((error) => {
         // Handle Errors here.
