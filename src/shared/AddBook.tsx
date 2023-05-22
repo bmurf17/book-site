@@ -2,6 +2,13 @@ import { useState } from "react";
 import { RankingStars } from "./RankingStars";
 import { AddBookDto, Book } from "../types/Book";
 import { addBookData } from "../api/BookApi";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBackward,
+  faChevronLeft,
+  faHome,
+} from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 export function AddBook() {
   const [img, setImage] = useState(
@@ -31,6 +38,13 @@ export function AddBook() {
 
   return (
     <div className="rounded overflow-hidden shadow-lg bg-white grid md:grid-cols-3 grid-cols-1 gap-2">
+      <Link
+        className="flex col-span-3 py-4 px-4 text-green-600 hover:text-green-800 hover:cursor-pointer text-xl align-middle"
+        to={"/mybooks"}
+      >
+        <FontAwesomeIcon className="pr-2  py-1" icon={faChevronLeft} />
+        <p>Back</p>
+      </Link>
       <div className="flex justify-center py-4 col-span-1">
         <img className="object-cover h-96" src={img} alt={"Add Book Photo"} />
       </div>

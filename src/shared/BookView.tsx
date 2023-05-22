@@ -4,6 +4,9 @@ import { useParams } from "react-router";
 import { Author } from "../types/Author";
 import { Book } from "../types/Book";
 import { RankingStars } from "./RankingStars";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 
 export function BookView() {
   const params = useParams();
@@ -35,6 +38,13 @@ export function BookView() {
 
   return (
     <div className="rounded overflow-hidden shadow-lg bg-white grid md:grid-cols-3 grid-cols-1 gap-2">
+      <Link
+        className="flex col-span-3 py-4 px-4 text-green-600 hover:text-green-800 hover:cursor-pointer text-xl align-middle"
+        to={"/mybooks"}
+      >
+        <FontAwesomeIcon className="pr-2  py-1" icon={faChevronLeft} />
+        <p>Back</p>
+      </Link>
       <div className="flex justify-center py-4 col-span-1">
         <img className="object-cover h-96" src={book?.img} alt={book?.title} />
       </div>
