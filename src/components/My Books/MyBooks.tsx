@@ -9,7 +9,6 @@ function MyBooks() {
   const queryResult = useQuery("book", fetchBookData);
 
   if (queryResult.isLoading) {
-    console.log("Loading");
     return <p> loading</p>;
   }
 
