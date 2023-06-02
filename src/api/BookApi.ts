@@ -1,5 +1,6 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { AddBookDto, Book } from "../types/Book";
+import { GoogleBooksResponse } from '../types/GoogleBooksReponse';
 
 export const fetchBookData = async () => {
   return await axios.get<Book[]>(
@@ -13,3 +14,9 @@ export const addBookData = async (book: AddBookDto) => {
     book
   );
 };
+
+export const getInfoFromGoogle = async (title: string): Promise<AxiosResponse<GoogleBooksResponse>> => {
+  return await axios.get(
+    `https://expressjs-postgres-production-5ff7.up.railway.app/google/title:${title}`
+  )
+}
