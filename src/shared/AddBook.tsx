@@ -1,21 +1,17 @@
-import { useState } from "react";
-import { RankingStars } from "./RankingStars";
-import { AddBookDto, Book } from "../types/Book";
-import { addBookData, getInfoFromGoogle } from "../api/BookApi";
+import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBackward,
-  faChevronLeft,
-  faHome,
-} from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { addBookData, getInfoFromGoogle } from "../api/BookApi";
+import { AddBookDto } from "../types/Book";
 import { GoogleBooksResponse, VolumeInfo } from "../types/GoogleBooksReponse";
+import { RankingStars } from "./RankingStars";
 
 export function AddBook() {
   const [img, setImage] = useState(
     "https://www.collinsdictionary.com/images/full/book_181404689_1000.jpg"
   );
-  const [author, setAuthor] = useState(1);
+  const [author, setAuthor] = useState("");
   const [title, setTitle] = useState("");
   const [genre, setGenre] = useState("");
   const [pageCount, setPageCount] = useState(0);
@@ -78,7 +74,7 @@ export function AddBook() {
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 required
                 value={author}
-                onChange={(e) => setAuthor(+e.target.value)}
+                onChange={(e) => setAuthor(e.target.value)}
               />
             </div>
           </div>

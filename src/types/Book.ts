@@ -13,7 +13,7 @@ export interface Book {
 export interface AddBookDto {
   img: string;
   title: string;
-  author: number;
+  author: string;
   pagecount: number;
   genre: string;
   user: number;
