@@ -30,15 +30,19 @@ function TBR() {
     );
   }
 
+  console.log(queryResult.data?.data.map((book) => console.log(book.dateread)));
+
   return (
     <div className="grid grid-flow-row auto-rows-max grid-cols-2 md:grid-cols-5 xl:grid-cols-6 gap-4">
-      {queryResult.data?.data.map((book) => {
-        return (
-          <div key={book.id}>
-            <BookCard book={book} showRating={false} />
-          </div>
-        );
-      })}
+      {queryResult.data?.data
+        .filter((book) => !book.dateread)
+        .map((book) => {
+          return (
+            <div key={book.id}>
+              <BookCard book={book} showRating={false} />
+            </div>
+          );
+        })}
     </div>
   );
 }

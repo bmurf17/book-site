@@ -26,7 +26,6 @@ function Login() {
     signInWithPopup(auth, provider)
       .then(async (result) => {
         // The signed-in user info.
-        console.log(result.user);
         const newUser: User = {
           id: 1,
           img: result.user.photoURL || "",

@@ -6,7 +6,7 @@ export interface Book {
   pagecount: number;
   genre: string;
   uid: string;
-  dateRead?: Date;
+  dateread?: Date;
   rating: number;
 }
 
@@ -14,7 +14,7 @@ export interface AddBookDto {
   img: string;
   title: string;
   author: string;
-  pagecount: number;
+  pageCount: number;
   genre: string;
   user: number;
   dateRead?: Date;
@@ -29,6 +29,6 @@ export const tempBook: Book = {
   pagecount: 400,
   genre: "Fiction",
   uid: "",
-  dateRead: new Date(),
+  dateread: new Date(),
   rating: 4,
 };

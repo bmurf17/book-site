@@ -13,19 +13,21 @@ function MyBooks() {
   }
 
   return (
-    <div className="grid grid-flow-row auto-rows-max grid-cols-2 md:grid-cols-5 xl:grid-cols-6 gap-4">
+    <div className="grid grid-flow-row auto-rows-max grid-cols-1 md:grid-cols-5 xl:grid-cols-6 gap-4">
       <Link to="/addbook">
         <AddBookCard />
       </Link>
-      {queryResult.data?.data.map((book) => {
-        return (
-          <Link key={book.id} to={`/mybooks/${book.id}`}>
-            <div>
-              <BookCard book={book} showRating={true} />
-            </div>
-          </Link>
-        );
-      })}
+      {queryResult.data?.data
+        .filter((book) => book.dateread)
+        .map((book) => {
+          return (
+            <Link key={book.id} to={`/mybooks/${book.id}`}>
+              <div>
+                <BookCard book={book} showRating={true} />
+              </div>
+            </Link>
+          );
+        })}
     </div>
   );
 }

@@ -16,7 +16,7 @@ export function AddBook() {
   const [genre, setGenre] = useState("");
   const [pageCount, setPageCount] = useState(0);
   const [dateRead, setDateRead] = useState("");
-  const [rating, setRaing] = useState(4);
+  const [rating, setRating] = useState(4);
 
   const [showFillOptions, setShowFillOptions] = useState(false);
   const [fillOptions, setFillOptions] = useState<GoogleBooksResponse>();
@@ -26,7 +26,7 @@ export function AddBook() {
       img: img,
       title: title,
       author: author,
-      pagecount: pageCount,
+      pageCount: pageCount,
       genre: genre,
       user: 1,
       dateRead: undefined,
@@ -43,12 +43,11 @@ export function AddBook() {
   };
 
   const fillInfo = (volumeInfo: VolumeInfo) => {
-    console.log(volumeInfo);
     setTitle(volumeInfo.title);
-
     setGenre(volumeInfo.categories[0]);
     setImage(volumeInfo.imageLinks.thumbnail);
     setPageCount(volumeInfo.pageCount);
+    setAuthor(volumeInfo.authors[0]);
   };
 
   return (
