@@ -24,4 +24,3 @@ firebaseconfig.js
 *.sln
 *.sw?
 
-src/firebaseconfig.ts
