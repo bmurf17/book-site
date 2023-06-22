@@ -1,6 +1,6 @@
 export function AddBookCard() {
   return (
-    <div className="rounded overflow-hidden shadow-lg bg-white hover:cursor-pointer">
+    <div className="rounded overflow-hidden shadow-lg bg-white hover:cursor-pointer h-full flex flex-col justify-center">
       <div className="flex justify-center pt-4 px-6">
         <img
           className="object-cover h-64"

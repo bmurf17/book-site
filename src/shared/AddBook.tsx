@@ -52,7 +52,7 @@ export function AddBook() {
 
   return (
     <div>
-      <div className="rounded overflow-hidden shadow-lg bg-white grid md:grid-cols-3 grid-cols-1 gap-2">
+      <div className="rounded overflow-hidden shadow-lg bg-white grid md:grid-cols-3 grid-cols-1 gap-2 h-full">
         <Link
           className="flex col-span-3 py-4 px-4 text-green-600 hover:text-green-800 hover:cursor-pointer text-xl align-middle"
           to={"/mybooks"}

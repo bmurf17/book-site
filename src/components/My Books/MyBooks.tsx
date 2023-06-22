@@ -22,7 +22,7 @@ function MyBooks() {
         .map((book) => {
           return (
             <Link key={book.id} to={`/mybooks/${book.id}`}>
-              <div>
+              <div className="h-full">
                 <BookCard book={book} showRating={true} />
               </div>
             </Link>
