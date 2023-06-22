@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { addBookData, getInfoFromGoogle } from "../api/BookApi";
 import { AddBookDto } from "../types/Book";
-import { GoogleBooksResponse, VolumeInfo } from "../types/GoogleBooksReponse";
+import { GoogleBooksResponse, VolumeInfo } from "../types/GoogleBooksResponse";
 import { RankingStars } from "./RankingStars";
 
 export function AddBook() {
@@ -45,7 +45,10 @@ export function AddBook() {
   const fillInfo = (volumeInfo: VolumeInfo) => {
     setTitle(volumeInfo.title);
     setGenre(volumeInfo.categories[0]);
-    setImage(volumeInfo.imageLinks.thumbnail);
+    setImage(
+      volumeInfo.imageLinks?.thumbnail ||
+        "https://books.google.com/books/publisher/content?id=PTBQEAAAQBAJ&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U0r9WQezTJW-cG6m5DjeBGcK5cuRA&w=1280"
+    );
     setPageCount(volumeInfo.pageCount);
     setAuthor(volumeInfo.authors[0]);
   };
@@ -168,25 +171,28 @@ export function AddBook() {
         <>
           <div className="rounded overflow-hidden  gap-2 mt-4 p-1">
             <div>
-              <div className="">Fill In Options</div>
+              <div className="text-xl">Fill In Options</div>
             </div>
           </div>
-          <div className="flex gap-4 mt-2">
+          <div className="grid grid-flow-row auto-rows-max grid-cols-1 md:grid-cols-5 xl:grid-cols-5 gap-4">
             {fillOptions?.items?.slice(0, 5).map((volume: any) => {
               return (
                 <div
                   key={volume.volumeInfo.title + volume.volumeInfo.pageCount}
-                  className="column shadow-lg bg-white p-2 "
+                  className="flex flex-col justify-center shadow-lg bg-white p-2 h-full "
                 >
-                  <div className="flex justify-center">
+                  <div className="flex justify-center h-full">
                     <img
-                      src={volume.volumeInfo.imageLinks?.thumbnail}
+                      src={
+                        volume.volumeInfo.imageLinks?.thumbnail ||
+                        "https://books.google.com/books/publisher/content?id=PTBQEAAAQBAJ&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U0r9WQezTJW-cG6m5DjeBGcK5cuRA&w=1280"
+                      }
                       alt={volume.volumeInfo.title + " cover"}
                     />
                   </div>
                   <div className="text-center">{volume.volumeInfo.title}</div>
                   <button
-                    className=" hover:bg-green-800 text-green-600 border-2 border-green-600 font-bold py-2 px-4 rounded"
+                    className=" hover:bg-green-800 text-green-600 border-2 border-green-600 font-bold py-2 px-4 mx-2 rounded"
                     onClick={() => {
                       fillInfo(volume.volumeInfo);
                     }}

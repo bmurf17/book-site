@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
 import { AddBookDto, Book } from "../types/Book";
-import { GoogleBooksResponse } from '../types/GoogleBooksReponse';
+import { GoogleBooksResponse } from '../types/GoogleBooksResponse';
 
 export const fetchBookData = async () => {
   return await axios.get<Book[]>(
