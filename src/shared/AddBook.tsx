@@ -67,103 +67,107 @@ export function AddBook() {
           <img className="object-cover h-96" src={img} alt={"Add Book Photo"} />
         </div>
         <div className="text-xl pt-4 h-2/3 col-span-2 px-2">
-          <div className="flex pt-4 items-center">
-            <p className="pr-4">Author: </p>
-            <div>
-              <input
-                type="text"
-                id="author"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                required
-                value={author}
-                onChange={(e) => setAuthor(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="flex pt-4 items-center">
-            <p className="pr-4">Title: </p>
-            <div>
-              <input
-                type="text"
-                id="Title"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                required
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="flex pt-4 items-center">
-            <p className="pr-4">Genre: </p>
-            <div>
-              <input
-                type="text"
-                id="genre"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                required
-                value={genre}
-                onChange={(e) => setGenre(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="flex pt-4 items-center">
-            <p className="pr-4">Page Count: </p>
-            <div>
-              <input
-                type="text"
-                id="pageCount"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                required
-                value={pageCount}
-                onChange={(e) => setPageCount(+e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="flex pt-4 items-center">
-            <p className="pr-4">Date Read: </p>
-            <div className="flex items-center">
-              <div className="relative">
-                <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                  <svg
-                    aria-hidden="true"
-                    className="w-5 h-5 text-gray-500 dark:text-gray-400"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                </div>
+          <div className="grid md:grid-cols-6 grid-cols-4 md:gap-4 gap-8 p-4 mx-">
+            <div className="flex justify-start items-center">Author: </div>
+            <div className="col-span-5">
+              <div className="flex justify-start items-center md:w-2/5 w-7/12">
                 <input
-                  type="date"
-                  name="start"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Select date start"
+                  type="text"
+                  id="author"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required
+                  value={author}
+                  onChange={(e) => setAuthor(e.target.value)}
                 />
               </div>
             </div>
-          </div>
-          <div className="flex pt-4 items-center">
-            <p className="pr-4">Rating: </p>
-            <RankingStars />
-          </div>
-          <div className="flex py-4 items-center gap-4">
-            <button
-              className="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded"
-              onClick={submit}
-            >
-              Add Book
-            </button>
-            <button
-              className=" hover:bg-green-800 text-green-600 border-2 border-green-600 font-bold py-2 px-4 rounded"
-              onClick={getFillInfo}
-            >
-              Fill Info
-            </button>
+            <div className="flex justify-start items-center">Title: </div>
+            <div className="col-span-5">
+              <div className="flex justify-start items-center md:w-2/5 w-7/12">
+                <input
+                  type="text"
+                  id="Title"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                />
+              </div>
+            </div>
+            <div className="flex justify-start items-center">Genre: </div>
+            <div className="col-span-5">
+              <div className="flex justify-start items-center md:w-2/5 w-7/12">
+                <input
+                  type="text"
+                  id="genre"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required
+                  value={genre}
+                  onChange={(e) => setGenre(e.target.value)}
+                />
+              </div>
+            </div>
+            <div className="flex justify-start items-center">Page Count: </div>
+            <div className="col-span-5">
+              <div className="flex justify-start items-center md:w-2/5 w-7/12">
+                <input
+                  type="text"
+                  id="pageCount"
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required
+                  value={pageCount}
+                  onChange={(e) => setPageCount(+e.target.value)}
+                />
+              </div>
+            </div>
+            <div className="flex justify-start items-center">Date Read: </div>
+            <div className="col-span-5">
+              <div className="flex justify-start items-center md:w-2/5 w-7/12">
+                <div className="relative">
+                  <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                    <svg
+                      aria-hidden="true"
+                      className="w-5 h-5 text-gray-500 dark:text-gray-400"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                        clipRule="evenodd"
+                      ></path>
+                    </svg>
+                  </div>
+                  <input
+                    type="date"
+                    name="start"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Select date start"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="flex justify-start items-center">Rating: </div>
+            <div className="col-span-5 flex justify-start items-center md:w-2/5 w-7/12">
+              <RankingStars />
+            </div>
+            <div className="col-span-2">
+              <button
+                className="bg-green-600 hover:bg-green-800 text-white font-bold py-2 px-4 rounded"
+                onClick={submit}
+              >
+                Add Book
+              </button>
+            </div>
+            <div className="col-span-2 ">
+              <button
+                className=" hover:bg-green-800 text-green-600 border-2 border-green-600 font-bold py-2 px-4 rounded"
+                onClick={getFillInfo}
+              >
+                Fill Info
+              </button>
+            </div>
           </div>
         </div>
       </div>
