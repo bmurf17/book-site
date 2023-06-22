@@ -3,7 +3,8 @@ import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import React, { useState } from "react";
 import { tempUser, User } from "./types/User";
-import { User as FirebaseAuth } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./firebaseconfig";
 
 const queryClient = new QueryClient();
 export const UserContext = React.createContext({
@@ -16,6 +17,26 @@ function App() {
   function changeUser(newUser: User) {
     setUser(newUser);
   }
+
+  onAuthStateChanged(auth, (currentUser) => {
+    const newUser: User = {
+      id: 0,
+      img: "",
+      name: currentUser?.displayName || "",
+    };
+    if (currentUser) {
+      if (user.name === "") {
+        const tempUser: User = {
+          id: 0,
+          img: "",
+          name: currentUser?.displayName || "",
+        };
+        changeUser(tempUser);
+      }
+    } else {
+      changeUser(newUser);
+    }
+  });
 
   const userGlobalState = {
     user,

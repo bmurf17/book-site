@@ -1,9 +1,10 @@
 import { LockClosedIcon } from "@heroicons/react/20/solid";
-import { app } from "../../firebaseconfig";
+import { auth } from "../../firebaseconfig";
 import {
   onAuthStateChanged,
   User as FirebaseUser,
   signInWithPopup,
+  UserInfo,
   GoogleAuthProvider,
   getAuth,
 } from "firebase/auth";
@@ -13,14 +14,9 @@ import { UserContext } from "../../App";
 import { User } from "../../types/User";
 
 function Login() {
-  const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
 
-  const { user, changeUser } = useContext(UserContext);
-
-  onAuthStateChanged(auth, (currentUser) => {
-    console.log(currentUser);
-  });
+  const { changeUser } = useContext(UserContext);
 
   const signInWithGoogle = async () => {
     signInWithPopup(auth, provider)
