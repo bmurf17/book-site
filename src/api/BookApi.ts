@@ -20,3 +20,10 @@ export const getInfoFromGoogle = async (title: string): Promise<AxiosResponse<Go
     `https://expressjs-postgres-production-5ff7.up.railway.app/google/title:${title}`
   )
 }
+
+export const updateBookData = async (book: AddBookDto, id: string) => {
+  return await axios.put(
+    `https://expressjs-postgres-production-5ff7.up.railway.app/book/${id}`,
+    book
+  )
+}
