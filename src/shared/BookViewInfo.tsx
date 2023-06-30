@@ -194,6 +194,7 @@ export function BookViewInfo({
                   >
                     <div className="flex justify-center h-full">
                       <img
+                        className="object-contain max-h-56 max-w-full"
                         src={
                           volume.volumeInfo.imageLinks?.thumbnail ||
                           "https://books.google.com/books/publisher/content?id=PTBQEAAAQBAJ&pg=PP1&img=1&zoom=3&hl=en&bul=1&sig=ACfU3U0r9WQezTJW-cG6m5DjeBGcK5cuRA&w=1280"

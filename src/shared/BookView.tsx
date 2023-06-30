@@ -29,13 +29,18 @@ export function BookView() {
   const { isLoading: isAuthorLoading, data: authorData } = useQuery(
     `author-${bookId}`,
     async () => {
-      return await axios.get<Author>(
-        `https://expressjs-postgres-production-5ff7.up.railway.app/author/${
-          book?.author || 1
-        }`
+      return await axios.get<Author[]>(
+        `https://expressjs-postgres-production-5ff7.up.railway.app/author/${bookData?.data?.author}`
       );
+    },
+    {
+      enabled: !!bookData,
     }
   );
+
+  if (isAuthorLoading) {
+    return <>Loading</>;
+  }
 
   const submit = (book: AddBookDto) => {
     if (bookId) {
@@ -44,25 +49,31 @@ export function BookView() {
   };
 
   return (
-    <div className="rounded overflow-hidden shadow-lg bg-white h-full">
-      <Link
-        className="flex col-span-3 py-4 px-4 text-green-600 hover:text-green-800 hover:cursor-pointer text-xl align-middle"
-        to={"/mybooks"}
-      >
-        <FontAwesomeIcon className="pr-2  py-1" icon={faChevronLeft} />
-        <p>Back</p>
-      </Link>
-      <BookViewInfo
-        img={bookData?.data.img || ""}
-        title={bookData?.data.title || ""}
-        author={authorData?.data.name || ""}
-        pageCount={bookData?.data.pagecount || 0}
-        genre={bookData?.data.genre || ""}
-        dateRead={bookData?.data.dateread}
-        rating={bookData?.data.rating || 0}
-        submit={submit}
-        submitButtonText="Edit Book"
-      />
-    </div>
+    <>
+      {isBookLoading || isAuthorLoading ? (
+        <> Loading</>
+      ) : (
+        <div className="rounded overflow-hidden shadow-lg bg-white h-full">
+          <Link
+            className="flex col-span-3 py-4 px-4 text-green-600 hover:text-green-800 hover:cursor-pointer text-xl align-middle"
+            to={"/mybooks"}
+          >
+            <FontAwesomeIcon className="pr-2  py-1" icon={faChevronLeft} />
+            <p>Back</p>
+          </Link>
+          <BookViewInfo
+            img={bookData?.data.img || ""}
+            title={bookData?.data.title || ""}
+            author={authorData?.data[0].name || ""}
+            pageCount={bookData?.data.pagecount || 0}
+            genre={bookData?.data.genre || ""}
+            dateRead={bookData?.data.dateread}
+            rating={bookData?.data.rating || 0}
+            submit={submit}
+            submitButtonText="Edit Book"
+          />
+        </div>
+      )}
+    </>
   );
 }
