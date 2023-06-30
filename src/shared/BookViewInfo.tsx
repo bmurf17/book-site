@@ -28,7 +28,8 @@ export function BookViewInfo({
   submitButtonText,
 }: Props) {
   const [img, setImage] = useState(
-    "https://www.collinsdictionary.com/images/full/book_181404689_1000.jpg"
+    propImg ||
+      "https://www.collinsdictionary.com/images/full/book_181404689_1000.jpg"
   );
   const [author, setAuthor] = useState(propAuthor);
   const [title, setTitle] = useState(propTitle);

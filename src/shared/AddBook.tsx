@@ -1,17 +1,11 @@
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { addBookData, getInfoFromGoogle } from "../api/BookApi";
+import { addBookData } from "../api/BookApi";
 import { AddBookDto } from "../types/Book";
-import { GoogleBooksResponse, VolumeInfo } from "../types/GoogleBooksResponse";
-import { RankingStars } from "./RankingStars";
 import { BookViewInfo } from "./BookViewInfo";
 
 export function AddBook() {
-  const [showFillOptions, setShowFillOptions] = useState(false);
-  const [fillOptions, setFillOptions] = useState<GoogleBooksResponse>();
-
   const submit = (book: AddBookDto) => {
     addBookData(book);
   };
