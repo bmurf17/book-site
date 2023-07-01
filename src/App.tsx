@@ -34,7 +34,7 @@ function App() {
         changeUser(tempUser);
       }
     } else {
-      changeUser(newUser);
+      //changeUser(newUser);
     }
   });
 
