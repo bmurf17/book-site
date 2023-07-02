@@ -1,4 +1,4 @@
-import Nav from "./components/Nav";
+import Nav from "./components/Nav/Nav";
 import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import React, { useState } from "react";
@@ -19,15 +19,11 @@ function App() {
   }
 
   onAuthStateChanged(auth, (currentUser) => {
-    const newUser: User = {
-      id: 0,
-      img: "",
-      name: currentUser?.displayName || "",
-    };
     if (currentUser) {
+      console.log(currentUser);
       if (user.name === "") {
         const tempUser: User = {
-          id: 0,
+          id: 1,
           img: "",
           name: currentUser?.displayName || "",
         };
