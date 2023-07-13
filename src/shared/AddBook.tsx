@@ -1,13 +1,23 @@
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { addBookData } from "../api/BookApi";
 import { AddBookDto } from "../types/Book";
 import { BookViewInfo } from "./BookViewInfo";
+import toast, { Toaster } from "react-hot-toast";
+
+const notify = (bookName: string, shelfName: string) =>
+  toast.success(`Added ${bookName} to your ${shelfName}`);
 
 export function AddBook() {
+  const nav = useNavigate();
   const submit = (book: AddBookDto) => {
     addBookData(book);
+
+    book.dateRead
+      ? notify(book.title, "Read Books")
+      : notify(book.title, "TBR");
+    nav("/mybooks");
   };
 
   return (

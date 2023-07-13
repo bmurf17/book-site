@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { tempUser, User } from "./types/User";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebaseconfig";
+import { Toaster } from "react-hot-toast";
 
 const queryClient = new QueryClient();
 export const UserContext = React.createContext({
@@ -44,6 +45,7 @@ function App() {
       <UserContext.Provider value={userGlobalState}>
         <QueryClientProvider client={queryClient}>
           <BrowserRouter>
+            <Toaster />
             <Nav />
           </BrowserRouter>
         </QueryClientProvider>
